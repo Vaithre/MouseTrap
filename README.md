@@ -1,5 +1,3 @@
-<img src="mouse-trap.svg" height="64" align="left" alt="Mouse Trap">
-
 # Mouse Trap
 
 <br clear="left"/>
