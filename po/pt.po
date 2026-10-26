@@ -1,0 +1,17 @@
+msgid ""
+msgstr "Project-Id-Version: Mouse Trap 1.0.0\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-26 00:00+0000\nPO-Revision-Date: 2026-10-26 00:00+0000\nLast-Translator: Mouse Trap contributors\nLanguage-Team: pt\nLanguage: pt\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Keyboard shortcut"
+msgstr "Atalho de teclado"
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "<a href=\"systemsettings://kcm_keys/kwin\">Change the Mouse Trap shortcut</a>"
+msgstr "<a href=\"systemsettings://kcm_keys/kwin\">Alterar o atalho do Mouse Trap</a>"
+
+msgid "Find “Toggle Mouse Trap” under KWin."
+msgstr "Procure «Ativar/desativar Mouse Trap» em KWin."
+
+msgid "Default shortcut is Ctrl+Shift+L."
+msgstr "O atalho padrão é Ctrl+Shift+L."
