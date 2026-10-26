@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
-  <title id="title">Cursor bloqueado por un muro</title>
-  <desc id="desc">Una flecha clásica de cursor toca un muro vertical de ladrillos.</desc>
+  <title id="title">Cursor blocked by a wall</title>
+  <desc id="desc">A cursor whose passage is obstructed by a brick wall.</desc>
   <defs>
     <clipPath id="bricks"><rect x="62" y="92" width="88" height="328" rx="4"/></clipPath>
   </defs>
