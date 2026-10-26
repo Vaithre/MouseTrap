@@ -45,4 +45,4 @@ If you run into a problem, you can open an issue. If we agree there’s a proble
 
 ## License
 
-This software is distributed under the MIT License.
+This software is distributed under the [MIT License](LICENSE).
