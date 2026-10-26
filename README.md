@@ -1,4 +1,8 @@
+<img src="mouse-trap.svg" height="64" align="left" alt="Mouse Trap">
+
 # Mouse Trap
+
+<br clear="left"/>
 
 A KWin script that uses the built-in screen barrier to keep the cursor confined to the current screen on Wayland.
 
