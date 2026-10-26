@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Cursor bloqueado por un muro</title>
+  <desc id="desc">Una flecha clásica de cursor toca un muro vertical de ladrillos.</desc>
+  <defs>
+    <clipPath id="bricks"><rect x="62" y="92" width="88" height="328" rx="4"/></clipPath>
+  </defs>
+
+  <rect x="62" y="92" width="88" height="328" rx="4" fill="#E66C50"/>
+  <g clip-path="url(#bricks)" fill="none" stroke="#FFF0E5" stroke-width="8">
+    <path d="M62 157h88M62 222h88M62 287h88M62 352h88"/>
+    <path d="M106 92v65M84 157v65M128 222v65M84 287v65M128 352v68"/>
+  </g>
+  <path d="M146 92v328" fill="none" stroke="#B84D3B" stroke-width="8"/>
+
+  <g transform="translate(158 218) scale(.93) translate(-158 -218)">
+    <path d="M158 218v169l42-39 37 80 37-18-37-79h65L158 218Z"
+          fill="#FFFFFF" stroke="#17263D" stroke-width="15" stroke-linejoin="round"/>
+  </g>
+</svg>
