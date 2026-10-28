@@ -12,7 +12,7 @@
    <item>
     <widget class="QLabel" name="shortcutLink">
      <property name="text">
-      <string>&lt;a href=&quot;systemsettings://kcm_keys/kwin&quot;&gt;Change the Mouse Trap shortcut&lt;/a&gt;</string>
+      <string>&lt;big&gt;&lt;a href=&quot;systemsettings://kcm_keys/kwin&quot;&gt;&lt;b&gt;Change the Mouse Trap shortcut&lt;/b&gt;&lt;/a&gt;&lt;/big&gt;</string>
      </property>
      <property name="openExternalLinks">
       <bool>true</bool>
@@ -27,7 +27,7 @@
      <item>
       <widget class="QLabel" name="instructions">
        <property name="text">
-        <string>Find “Toggle Mouse Trap” under KWin.</string>
+        <string>&lt;big&gt;Find "Toggle Mouse Trap" under KWin.&lt;/big&gt;</string>
        </property>
        <property name="wordWrap">
         <bool>true</bool>
@@ -37,7 +37,7 @@
      <item>
       <widget class="QLabel" name="defaultShortcut">
        <property name="text">
-        <string>Default shortcut is Ctrl+Shift+L.</string>
+        <string>&lt;big&gt;Default shortcut is &lt;b&gt;Ctrl+Shift+L&lt;/b&gt;&lt;/big&gt;</string>
        </property>
        <property name="wordWrap">
         <bool>true</bool>
@@ -48,11 +48,8 @@
    </item>
    <item>
     <widget class="QLabel" name="githubLink">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
      <property name="text">
-      <string>GitHub</string>
+      <string>&lt;big&gt;&lt;a href=&quot;https://github.com/Vaithre/MouseTrap&quot;&gt;&lt;b&gt;View project on GitHub&lt;/b&gt;&lt;/a&gt;&lt;/big&gt;</string>
      </property>
      <property name="wordWrap">
       <bool>true</bool>

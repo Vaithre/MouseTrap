@@ -4,14 +4,14 @@ msgstr "Project-Id-Version: Mouse Trap 1.0.0\nReport-Msgid-Bugs-To: \nPOT-Creati
 msgid "Keyboard shortcut"
 msgstr "Atalho de teclado"
 
-msgid "GitHub"
-msgstr "GitHub"
+msgid "<big><a href=\"https://github.com/Vaithre/MouseTrap\"><b>View project on GitHub</b></a></big>"
+msgstr "<big><a href=\"https://github.com/Vaithre/MouseTrap\"><b>Ver o projeto no GitHub</b></a></big>"
 
-msgid "<a href=\"systemsettings://kcm_keys/kwin\">Change the Mouse Trap shortcut</a>"
-msgstr "<a href=\"systemsettings://kcm_keys/kwin\">Alterar o atalho do Mouse Trap</a>"
+msgid "<big><a href=\"systemsettings://kcm_keys/kwin\"><b>Change the Mouse Trap shortcut</b></a></big>"
+msgstr "<big><a href=\"systemsettings://kcm_keys/kwin\"><b>Alterar o atalho do Mouse Trap</b></a></big>"
 
-msgid "Find “Toggle Mouse Trap” under KWin."
-msgstr "Procure «Ativar/desativar Mouse Trap» em KWin."
+msgid "<big>Find \"Toggle Mouse Trap\" under KWin.</big>"
+msgstr "<big>Procure \"Ativar/desativar Mouse Trap\" em KWin.</big>"
 
-msgid "Default shortcut is Ctrl+Shift+L."
-msgstr "O atalho padrão é Ctrl+Shift+L."
+msgid "<big>Default shortcut is <b>Ctrl+Shift+L</b></big>"
+msgstr "<big>O atalho padrão é <b>Ctrl+Shift+L</b></big>"
