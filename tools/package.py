@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build an installable KWin Script with its resources and compiled translations."""
+"""Build an installable KWin Script."""
 
 import argparse
 import json
@@ -31,7 +31,7 @@ def main():
     if not catalogs:
         parser.error('No translation catalogs found in po/')
 
-    # Rebuild translations from their sources; ignore previously generated catalogs.
+    # Rebuild translations from their sources.
     files = [ROOT / 'metadata.json', ROOT / 'LICENSE']
     files += sorted(ROOT.glob('README*.md'))
     files += [p for p in sorted((ROOT / 'contents').rglob('*'))
@@ -42,7 +42,7 @@ def main():
 
     output = args.output.expanduser().resolve()
     output.parent.mkdir(parents=True, exist_ok=True)
-    # Replace the previous package only after every translation and the ZIP succeed.
+
     with tempfile.TemporaryDirectory(prefix='.mouse-trap-', dir=output.parent) as directory:
         staging = Path(directory)
         compiled = []
