@@ -36,7 +36,8 @@ def main():
     parser.add_argument('--output', type=Path, default=ROOT / 'dist/mouse-trap-dev.kwinscript')
     args = parser.parse_args()
     output = args.output.expanduser().resolve()
-    release_output = (ROOT / 'dist/mouse-trap.kwinscript').resolve()
+    release_version = (ROOT / 'VERSION').read_text(encoding='utf-8').strip()
+    release_output = (ROOT / 'dist' / f'mouse-trap-{release_version}.kwinscript').resolve()
     if output == release_output:
         parser.error('The dev package cannot replace the release package')
 

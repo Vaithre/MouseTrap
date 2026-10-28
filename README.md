@@ -18,9 +18,9 @@ And finally, it’s just a KWin script, so it’s extremely lightweight.
 
 ## Install
 
-Go to **System Settings > Window Management > KWin Scripts**, select **Get New...**, and search for *“Mouse Trap”*. It should appear in the official KDE list. You can also download `mouse-trap.kwinscript` from **Releases** and install it via **System Settings > Window Management > KWin Scripts > Install from File...**. Then just enable the script.
+Go to **System Settings > Window Management > KWin Scripts**, select **Get New...**, and search for *“Mouse Trap”*. It should appear in the official KDE list. You can also download `mouse-trap-[VERSION].kwinscript` from **Releases** and install it via **System Settings > Window Management > KWin Scripts > Install from File...**. Then just enable the script.
 
-Alternatively, run `kpackagetool6 --type=KWin/Script -i mouse-trap.kwinscript` from the directory where you downloaded it.
+Alternatively, run `kpackagetool6 --type=KWin/Script -i mouse-trap-[VERSION].kwinscript` from the directory where you downloaded it. Replace `[VERSION]` with the version shown on the release.
 
 > [!TIP]
 > It’s best to install it from the KDE store using "**Get New...**", That way, the script will update automatically along with your system.
