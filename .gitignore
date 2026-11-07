@@ -7,3 +7,6 @@ contents/locale/
 
 # Temporary packaging directories (when --output points outside dist/)
 .mouse-trap-*/
+
+# TODO List
+TODO.txt
