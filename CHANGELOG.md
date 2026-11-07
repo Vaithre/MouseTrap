@@ -10,7 +10,7 @@
 
 - Redesigned the settings menu.
 - Enabled changing the shortcut directly from the settings menu.
-- Updated code comments and documented the new settings files and icons.
+- Updated code comments.
 
 ### Fixed
 
