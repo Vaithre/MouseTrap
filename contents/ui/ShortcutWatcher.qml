@@ -8,9 +8,9 @@ DBus.SignalWatcher {
     path: "/kglobalaccel"
     iface: "org.kde.KGlobalAccel"
 
-    signal shortcutChanged(string component, string action)
+    signal shortcutChanged(string component, string action, var sequences)
 
     function dbusyourShortcutsChanged(actionId, keys) {
-        if (actionId.length >= 2) watcher.shortcutChanged(actionId[0], actionId[1]);
+        if (actionId.length >= 2) watcher.shortcutChanged(actionId[0], actionId[1], keys);
     }
 }

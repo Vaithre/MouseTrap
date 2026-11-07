@@ -20,16 +20,24 @@ Item {
     property bool queryPending: false
     property bool canCleanUp: false
     property bool restoring: false
-    property bool refreshPending: false
+    property bool watchingShortcuts: false
 
     signal activated()
 
     function unpack(value) {
         try {
-            return JSON.parse(JSON.stringify(value));
+            return unwrap(JSON.parse(JSON.stringify(value)));
         } catch (error) {
             return null;
         }
+    }
+
+    function unwrap(value) {
+        if (Array.isArray(value)) return value.map(unwrap);
+        if (value !== null && typeof value === "object" && value.value !== undefined) {
+            return unwrap(value.value);
+        }
+        return value;
     }
 
     function savedKeys() {
@@ -65,24 +73,22 @@ Item {
     }
 
     function captureShortcut() {
-        if (!handler) return;
+        if (!handler || queryPending) return;
         canCleanUp = false;
-        if (queryPending) {
-            refreshPending = true;
-            return;
-        }
         queryPending = true;
         readShortcut.call();
     }
 
     function capture(returnValue) {
+        if (!queryPending) return;
         queryPending = false;
-        if (refreshPending) {
-            refreshPending = false;
-            captureShortcut();
-            return;
-        }
-        const sequences = unpack(returnValue[0]);
+        captureSequences(unpack(returnValue[0]));
+    }
+
+    function captureSequences(sequences) {
+        canCleanUp = false;
+        const wasRestoring = restoring;
+        restoring = false;
         if (!Array.isArray(sequences)) {
             return;
         }
@@ -100,8 +106,7 @@ Item {
         }
         keys.sort(function(a, b) { return a - b; });
         const serialized = JSON.stringify(keys);
-        if (restoring) {
-            restoring = false;
+        if (wasRestoring) {
             const expected = Array.from(restoredKeys).sort(function(a, b) { return a - b; });
             if (serialized !== JSON.stringify(expected)) return;
         }
@@ -114,7 +119,7 @@ Item {
 
     function cleanUp() {
         // Keep KDE record if the last query failed, is still pending, or is stale
-        if (!canCleanUp || queryPending || watcher.status !== Loader.Ready) return;
+        if (!canCleanUp || queryPending || !watchingShortcuts) return;
         backup.sync();
         removeShortcut.call();
     }
@@ -137,12 +142,15 @@ Item {
     Loader {
         id: watcher
         source: "ShortcutWatcher.qml"
+        onLoaded: manager.watchingShortcuts = true
     }
 
     Connections {
         target: watcher.item
-        function onShortcutChanged(component, action) {
-            if (component === "kwin" && action === manager.name) manager.captureShortcut();
+        function onShortcutChanged(component, action, sequences) {
+            if (!manager.handler || component !== "kwin" || action !== manager.name) return;
+            manager.queryPending = false;
+            manager.captureSequences(manager.unpack(sequences));
         }
     }
 
@@ -188,7 +196,9 @@ Item {
         dbusInterface: "org.kde.KGlobalAccel"
         method: "setForeignShortcut"
         arguments: [manager.actionId, manager.restoredKeys]
-        onFinished: manager.captureShortcut()
+        onFinished: {
+            if (manager.restoring) manager.captureShortcut();
+        }
         onFailed: manager.restoring = false
     }
 
