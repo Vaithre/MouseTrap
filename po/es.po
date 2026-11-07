@@ -4,14 +4,32 @@ msgstr "Project-Id-Version: Mouse Trap 1.0.0\nReport-Msgid-Bugs-To: \nPOT-Creati
 msgid "Keyboard shortcut"
 msgstr "Atajo de teclado"
 
-msgid "<big><a href=\"https://github.com/Vaithre/MouseTrap\"><b>View project on GitHub</b></a></big>"
-msgstr "<big><a href=\"https://github.com/Vaithre/MouseTrap\"><b>Ver el proyecto en GitHub</b></a></big>"
+msgid "Keep your cursor on the current screen"
+msgstr "Manten el cursor en la pantalla actual"
 
-msgid "<big><a href=\"systemsettings://kcm_keys/kwin\"><b>Change the Mouse Trap shortcut</b></a></big>"
-msgstr "<big><a href=\"systemsettings://kcm_keys/kwin\"><b>Cambiar el atajo de Mouse Trap</b></a></big>"
+msgid "Lock cursor to screen"
+msgstr "Bloquear cursor a la pantalla"
 
-msgid "<big>Find \"Toggle Mouse Trap\" under KWin.</big>"
-msgstr "<big>Buscá \"Activar/desactivar Mouse Trap\" en KWin.</big>"
+msgid "Enable Mouse Trap to change its shortcut."
+msgstr "Active Mouse Trap para cambiar su atajo."
 
-msgid "<big>Default shortcut is <b>Ctrl+Shift+L</b></big>"
-msgstr "<big>El atajo predeterminado es <b>Ctrl+Shift+L</b></big>"
+msgid "Edit multi-step shortcuts in KDE Keyboard Shortcuts."
+msgstr "Edite los atajos de varios pasos en Atajos de teclado de KDE."
+
+msgid "Could not read the shortcut from KDE."
+msgstr "No se pudo leer el atajo de KDE."
+
+msgid "KDE could not apply this shortcut."
+msgstr "KDE no pudo aplicar este atajo."
+
+msgid "This shortcut is already in use"
+msgstr "Este atajo ya está en uso"
+
+msgid "Could not check shortcut availability."
+msgstr "No se pudo comprobar la disponibilidad del atajo."
+
+msgid "View project on GitHub"
+msgstr "Ver el proyecto en GitHub"
+
+msgid "Leave a like on KDE Store"
+msgstr "Deja un like en KDE Store"

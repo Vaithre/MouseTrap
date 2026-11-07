@@ -2,7 +2,7 @@
 """Build a separate Mouse Trap package for testing alongside the installed release.
 
 This package is virtually identical to the original, it just has different
-metadata so it can be installed alongside the real package. Technically, you can use it if you really, really want to.
+metadata so it can be installed alongside the real package. Technically, you can use this instead if you really, really want to.
 """
 
 import argparse
@@ -58,16 +58,16 @@ def main():
 
         update_text(staging / 'contents/ui/main.qml', [
             ('name: "mouse-trap-toggle"', 'name: "mouse-trap-dev-toggle"', 1),
+            ('settingsFile: "mouse-traprc"', 'settingsFile: "mouse-trap-devrc"', 1),
             ('text: root.shortcutLabel()', 'text: root.shortcutLabel() + " (Dev)"', 1),
         ])
-        update_text(staging / 'contents/ui/config.ui', [
-            ('"Toggle Mouse Trap" under KWin.', '"Toggle Mouse Trap (Dev)" under KWin.', 1),
+        update_text(staging / 'contents/ui/ShortcutEditor.qml', [
+            ('actionName: "mouse-trap-toggle"', 'actionName: "mouse-trap-dev-toggle"', 1),
+            ('translationDomain: "mouse-trap-config"', 'translationDomain: "mouse-trap-dev-config"', 1),
         ])
-        for language in ('es', 'pt', 'pt_BR'):
-            update_text(staging / 'po' / f'{language}.po', [
-                ('Mouse Trap\\"', 'Mouse Trap (Dev)\\"', 2),
-            ])
-
+        update_text(staging / 'contents/ui/ProjectLinks.qml', [
+            ('translationDomain: "mouse-trap-config"', 'translationDomain: "mouse-trap-dev-config"', 1),
+        ])
         subprocess.run([sys.executable, str(staging / 'tools/package.py'),
                         '--output', str(output)], check=True)
 

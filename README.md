@@ -31,8 +31,6 @@ Alternatively, run `kpackagetool6 --type=KWin/Script -i mouse-trap-[VERSION].kwi
 2. Press **Ctrl+Shift+L** to confine the mouse to the current monitor.
 3. Press **Ctrl+Shift+L** again to release it.
 
-To change the shortcut, open the script’s settings and follow the link to **KDE Shortcuts**. Look for *“Toggle Mouse Trap”* under **KWin**.
-
 ## Known issues
 
 * The confinement isn’t **strict**. Very fast movements may let the cursor briefly slip onto another monitor. In practice, though, this doesn’t cause any problems.

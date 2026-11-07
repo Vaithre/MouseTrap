@@ -2,11 +2,13 @@
 """Build an installable KWin Script."""
 
 import argparse
+from base64 import b64encode
 import json
 from pathlib import Path
 import subprocess
 import tempfile
 from zipfile import ZIP_DEFLATED, ZipFile
+from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -29,18 +31,46 @@ def main():
     if not domain or Path(domain).name != domain:
         parser.error('Invalid translation domain in metadata.json')
 
+    ui_file = ROOT / 'contents/ui/config.ui'
+    editor_file = ROOT / 'contents/ui/ShortcutEditor.qml'
+    links_file = ROOT / 'contents/ui/ProjectLinks.qml'
+    icons = {
+        ROOT / 'res/github-svg.svg': '@MOUSE_TRAP_GITHUB_ICON@',
+        ROOT / 'res/kde-svg.svg': '@MOUSE_TRAP_STORE_ICON@',
+    }
     required = [version_file, ROOT / 'metadata.json', ROOT / 'LICENSE', ROOT / 'README.md',
-                main_script, ROOT / 'contents/ui/config.ui', ROOT / 'contents/config/main.xml']
+                main_script, ROOT / 'contents/ui/ShortcutManager.qml',
+                ROOT / 'contents/ui/ShortcutWatcher.qml', ui_file, editor_file, links_file, ROOT / 'contents/config/main.xml'] + list(icons)
     for path in required:
         if not path.is_file():
             parser.error(f'Missing required file: {path}')
+
+    ui = ui_file.read_text(encoding='utf-8')
+    links = links_file.read_text(encoding='utf-8')
+    for icon, marker in icons.items():
+        data = icon.read_bytes().replace(b'width="800px" height="800px"', b'width="16" height="16"', 1)
+        if icon.name == 'github-svg.svg':
+            data = data.replace(b'<svg ', b'<svg fill="#ffffff" ', 1)
+        if links.count(marker) != 1:
+            parser.error(f'Expected one settings reference to {icon.name}')
+        uri = 'data:image/svg+xml;base64,' + b64encode(data).decode('ascii')
+        links = links.replace(marker, uri)
+
+    for marker, source in (
+        ('@MOUSE_TRAP_SHORTCUT_EDITOR@', editor_file.read_bytes()),
+        ('@MOUSE_TRAP_PROJECT_LINKS@', links.encode('utf-8')),
+    ):
+        if ui.count(marker) != 1:
+            parser.error(f'Expected one settings reference to {marker}')
+        uri = 'data:text/plain;base64,' + quote(b64encode(source).decode('ascii'), safe='')
+        ui = ui.replace(marker, uri)
 
     catalogs = sorted((ROOT / 'po').glob('*.po'))
     if not catalogs:
         parser.error('No translation catalogs found in po/')
 
-    # Rebuild translations from their sources.
-    files = [version_file, ROOT / 'metadata.json', ROOT / 'LICENSE']
+    # Rebuild translations from their sources
+    files = [version_file, ROOT / 'metadata.json', ROOT / 'LICENSE'] + list(icons)
     files += sorted(ROOT.glob('README*.md'))
     files += [p for p in sorted((ROOT / 'contents').rglob('*'))
               if p.is_file() and p.relative_to(ROOT / 'contents').parts[0] != 'locale']
@@ -64,7 +94,10 @@ def main():
         package = staging / output.name
         with ZipFile(package, 'w', ZIP_DEFLATED) as archive:
             for path in files:
-                archive.write(path, path.relative_to(ROOT))
+                if path == ui_file:
+                    archive.writestr(path.relative_to(ROOT).as_posix(), ui)
+                else:
+                    archive.write(path, path.relative_to(ROOT))
             for path, relative in compiled:
                 archive.write(path, relative)
         with ZipFile(package) as archive:

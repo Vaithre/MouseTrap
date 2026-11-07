@@ -54,7 +54,6 @@ Item {
         if (Options.edgeBarrier !== confinementBarrier) {
             Options.edgeBarrier = savedEdgeBarrier;
             Options.cornerBarrier = savedCornerBarrier;
-            console.warn("Mouse Trap: KWin rejected the barrier setting");
             return;
         }
 
@@ -76,10 +75,10 @@ Item {
         }
     }
 
-    ShortcutHandler {
+    ShortcutManager {
         name: "mouse-trap-toggle"
         text: root.shortcutLabel()
-        sequence: "Ctrl+Shift+L"
+        settingsFile: "mouse-traprc"
         onActivated: root.toggle()
     }
 }

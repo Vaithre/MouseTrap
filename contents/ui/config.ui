@@ -6,58 +6,115 @@
    <string>Keyboard shortcut</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="edit-select"/>
+   <iconset theme="input-mouse"/>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>18</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
    <item>
-    <widget class="QLabel" name="shortcutLink">
+    <widget class="QLabel" name="description">
      <property name="text">
-      <string>&lt;big&gt;&lt;a href=&quot;systemsettings://kcm_keys/kwin&quot;&gt;&lt;b&gt;Change the Mouse Trap shortcut&lt;/b&gt;&lt;/a&gt;&lt;/big&gt;</string>
-     </property>
-     <property name="openExternalLinks">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <layout class="QVBoxLayout" name="instructionsLayout">
-     <property name="spacing">
-      <number>0</number>
-     </property>
-     <item>
-      <widget class="QLabel" name="instructions">
-       <property name="text">
-        <string>&lt;big&gt;Find "Toggle Mouse Trap" under KWin.&lt;/big&gt;</string>
-       </property>
-       <property name="wordWrap">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="defaultShortcut">
-       <property name="text">
-        <string>&lt;big&gt;Default shortcut is &lt;b&gt;Ctrl+Shift+L&lt;/b&gt;&lt;/big&gt;</string>
-       </property>
-       <property name="wordWrap">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-   <item>
-    <widget class="QLabel" name="githubLink">
-     <property name="text">
-      <string>&lt;big&gt;&lt;a href=&quot;https://github.com/Vaithre/MouseTrap&quot;&gt;&lt;b&gt;View project on GitHub&lt;/b&gt;&lt;/a&gt;&lt;/big&gt;</string>
+      <string>Keep your cursor on the current screen</string>
      </property>
      <property name="wordWrap">
       <bool>true</bool>
      </property>
-     <property name="openExternalLinks">
-      <bool>true</bool>
-     </property>
     </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="shortcutGroup">
+     <property name="styleSheet">
+      <string notr="true">QGroupBox#shortcutGroup {
+ border: 1px solid palette(mid);
+ border-radius: 8px;
+ margin-top: 10px;
+}
+QGroupBox#shortcutGroup::title {
+ subcontrol-origin: margin;
+ left: 12px;
+ padding: 0 6px;
+}</string>
+     </property>
+     <property name="title">
+      <string>Keyboard shortcut</string>
+     </property>
+     <layout class="QVBoxLayout" name="shortcutLayout">
+      <property name="spacing">
+       <number>12</number>
+      </property>
+      <property name="leftMargin">
+       <number>16</number>
+      </property>
+      <property name="topMargin">
+       <number>22</number>
+      </property>
+      <property name="rightMargin">
+       <number>16</number>
+      </property>
+      <property name="bottomMargin">
+       <number>16</number>
+      </property>
+      <item>
+       <widget class="QQuickWidget" name="shortcutEditor">
+        <property name="minimumSize">
+         <size><width>420</width><height>72</height></size>
+        </property>
+        <property name="resizeMode">
+         <enum>QQuickWidget::SizeViewToRootObject</enum>
+        </property>
+        <property name="source">
+         <url><string notr="true">@MOUSE_TRAP_SHORTCUT_EDITOR@</string></url>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="projectLinksLayout">
+     <property name="spacing">
+      <number>10</number>
+     </property>
+     <item>
+      <widget class="QQuickWidget" name="projectLinks">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="resizeMode">
+        <enum>QQuickWidget::SizeViewToRootObject</enum>
+       </property>
+       <property name="source">
+        <url><string notr="true">@MOUSE_TRAP_PROJECT_LINKS@</string></url>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="projectLinksSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size><width>0</width><height>0</height></size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
    </item>
    <item>
     <spacer name="verticalSpacer">
@@ -66,8 +123,8 @@
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>20</width>
-       <height>20</height>
+       <width>0</width>
+       <height>0</height>
       </size>
      </property>
     </spacer>
