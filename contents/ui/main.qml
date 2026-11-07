@@ -5,6 +5,7 @@ Item {
     id: root
     visible: false
 
+    readonly property string pluginId: "mouse-trap"
     readonly property int confinementBarrier: 1000000
     property int savedEdgeBarrier: 0
     property bool savedCornerBarrier: false
@@ -80,5 +81,9 @@ Item {
         text: root.shortcutLabel()
         settingsFile: "mouse-traprc"
         onActivated: root.toggle()
+    }
+
+    Loader {
+        Component.onCompleted: setSource("PackageWatcher.qml", {"pluginId": root.pluginId})
     }
 }

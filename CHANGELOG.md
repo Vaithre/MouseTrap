@@ -15,6 +15,7 @@
 ### Fixed
 
 - Fixed the shortcut entry remaining registered after the script was uninstalled.
+- Fixed the script continuing to run after its installed files were removed.
 
 
 ## [1.1.0] - 2026-10-28

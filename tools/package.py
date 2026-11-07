@@ -40,6 +40,7 @@ def main():
     }
     required = [version_file, ROOT / 'metadata.json', ROOT / 'LICENSE', ROOT / 'README.md',
                 main_script, ROOT / 'contents/ui/ShortcutManager.qml',
+                ROOT / 'contents/ui/PackageWatcher.qml',
                 ROOT / 'contents/ui/ShortcutWatcher.qml', ui_file, editor_file, links_file, ROOT / 'contents/config/main.xml'] + list(icons)
     for path in required:
         if not path.is_file():

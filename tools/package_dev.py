@@ -57,6 +57,7 @@ def main():
         metadata_path.write_text(json.dumps(metadata, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 
         update_text(staging / 'contents/ui/main.qml', [
+            ('pluginId: "mouse-trap"', 'pluginId: "mouse-trap-dev"', 1),
             ('name: "mouse-trap-toggle"', 'name: "mouse-trap-dev-toggle"', 1),
             ('settingsFile: "mouse-traprc"', 'settingsFile: "mouse-trap-devrc"', 1),
             ('text: root.shortcutLabel()', 'text: root.shortcutLabel() + " (Dev)"', 1),
