@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.2.0] - 2026-11-07
+
+### Added
+
+- Added a `res/` folder containing the icons used in the new menu.
+
+### Changed
+
+- Redesigned the settings menu.
+- Enabled changing the shortcut directly from the settings menu.
+- Updated code comments and documented the new settings files and icons.
+
+### Fixed
+
+- Fixed the shortcut entry remaining registered after the script was uninstalled.
+
+
 ## [1.1.0] - 2026-10-28
 
 ### Added
