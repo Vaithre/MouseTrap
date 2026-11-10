@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>MouseTrapConfig</class>
  <widget class="QWidget" name="MouseTrapConfig">
+  <property name="minimumSize">
+   <size><width>0</width><height>300</height></size>
+  </property>
   <property name="windowTitle">
    <string>Keyboard shortcut</string>
   </property>

@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.2.1] - 2026-11-26
+
+### Changed
+
+- Moved the Mouse Trap icons to `res/`.
+
+### Removed
+
+- Removed a redundant tooltip explaining how to change the keyboard shortcut.
+
+
 ## [1.2.0] - 2026-11-07
 
 ### Added

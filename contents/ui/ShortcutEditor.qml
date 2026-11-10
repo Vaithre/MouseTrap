@@ -238,6 +238,15 @@ QQC2.Control {
                         multiKeyShortcutsAllowed: false
                         checkForConflictsAgainst: 0
                         onKeySequenceModified: editor.applyShortcut(editor.keyCode)
+
+                        Component.onCompleted: {
+                            for (const button of recorder.children) {
+                                if (!(button instanceof QQC2.Button) || !button.checkable) continue;
+                                for (const toolTip of button.data) {
+                                    if (toolTip instanceof QQC2.ToolTip) toolTip.visible = false;
+                                }
+                            }
+                        }
                     }
                 }
 

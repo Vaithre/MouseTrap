@@ -77,7 +77,7 @@ def main():
               if p.is_file() and p.relative_to(ROOT / 'contents').parts[0] != 'locale']
     files += [p for p in sorted((ROOT / 'docs').rglob('*')) if p.is_file()]
     files += [p for name in ('mouse-trap.svg', 'mouse-trap.png')
-              if (p := ROOT / name).is_file()]
+              if (p := ROOT / 'res' / name).is_file()]
 
     output = (args.output or ROOT / 'dist' / f'mouse-trap-{version}.kwinscript').expanduser().resolve()
     output.parent.mkdir(parents=True, exist_ok=True)
